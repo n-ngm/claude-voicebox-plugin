@@ -4,7 +4,7 @@
   "plugins": [
     {
       "name": "voicebox",
-      "source": ".",
+      "source": "./plugins/voicebox",
       "description": "VOICEVOX voice notification and character speech for Claude Code"
     }
   ]
