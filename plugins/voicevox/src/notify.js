@@ -194,10 +194,13 @@ process.stdin.on("end", async () => {
   const notifications = config.notifications ?? {};
 
   let speakerId = getDefaultSpeakerId(config);
+
+  const text = await processHookMessage(hookEvent, message, lastAssistantMessage, transcriptPath, notifications);
+
+  // Extract speaker_id after processHookMessage so Stop events have the latest transcript
   const [, transcriptSpeakerId] = extractLastAssistantMessage(transcriptPath);
   if (transcriptSpeakerId !== null) speakerId = transcriptSpeakerId;
 
-  const text = await processHookMessage(hookEvent, message, lastAssistantMessage, transcriptPath, notifications);
   const title = extractSessionTitle(transcriptPath);
 
   showNotification(title, text);
