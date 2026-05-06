@@ -1,0 +1,25 @@
+{
+  "description": "Voicebox plugin notification hooks",
+  "hooks": {
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/src/notify.js"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ${CLAUDE_PLUGIN_ROOT}/src/notify.js"
+          }
+        ]
+      }
+    ]
+  }
+}
