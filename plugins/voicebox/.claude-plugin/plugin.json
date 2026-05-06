@@ -1,6 +1,6 @@
 {
   "name": "voicebox",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "VOICEVOX voice notification and character speech for Claude Code",
   "author": { "name": "n-ngm" }
 }
