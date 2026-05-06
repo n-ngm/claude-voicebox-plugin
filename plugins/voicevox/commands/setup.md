@@ -62,14 +62,14 @@ Write the **filename stem** (not the display name) to `~/.claude/settings.voicev
 
 ## 6. Configure Permissions
 
-If `~/.claude/settings.json` does not already allow reading `settings.voicevox.json`, ask the user for permission to add the following to `permissions.allow`:
+Check `~/.claude/settings.json` and add any missing entries to `permissions.allow`. Ask the user once for all missing items together, then append them all. Skip any already present.
 
 ```
 Read(~/.claude/settings.voicevox.json)
 Read(**/.claude/settings.voicevox.json)
+Read(**/voicevox/speakers/*.json)
+mcp__plugin_voicevox_voicevox__*
 ```
-
-If approved, append to the `permissions.allow` array. Skip if already present.
 
 ## 7. Add CLAUDE.md Import
 
