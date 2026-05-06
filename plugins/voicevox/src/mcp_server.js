@@ -10,7 +10,7 @@ import { randomUUID } from "crypto";
 const VOICEVOX_HOST = "http://localhost:50021";
 
 const server = new Server(
-  { name: "voicebox", version: "1.1.0" },
+  { name: "voicevox", version: "1.1.6" },
   { capabilities: { tools: {} } }
 );
 
@@ -21,7 +21,7 @@ const TOOLS = [
     inputSchema: { type: "object", properties: {}, required: [] }
   },
   {
-    name: "text_to_speech",
+    name: "speak",
     description: "Convert text to speech using VOICEVOX and optionally play it.",
     inputSchema: {
       type: "object",
@@ -35,7 +35,7 @@ const TOOLS = [
     }
   },
   {
-    name: "text_to_speech_batch",
+    name: "speak_a_lot",
     description: "Convert multiple texts to speech and play them seamlessly. Synthesizes the next audio while the current one is playing (pipeline), so there is almost no gap between sentences.",
     inputSchema: {
       type: "object",
@@ -135,7 +135,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     }
   }
 
-  if (name === "text_to_speech") {
+  if (name === "speak") {
     const { text: t, speaker_id = 1, speed = 1.3, auto_play = true } = args;
     const tmpFile = join(tmpdir(), `voicevox.${process.pid}.${randomUUID()}.wav`);
     try {
@@ -151,7 +151,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     }
   }
 
-  if (name === "text_to_speech_batch") {
+  if (name === "speak_a_lot") {
     const { texts, speaker_id = 1, speed = 1.3, auto_play = true } = args;
     if (!texts?.length) return text("ok");
 

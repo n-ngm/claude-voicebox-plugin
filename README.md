@@ -88,8 +88,8 @@ The plugin exposes the following MCP tools for direct use:
 | Tool | Description |
 |------|-------------|
 | `get_voices` | List available voices from VOICEVOX |
-| `text_to_speech` | Synthesize and play a single text |
-| `text_to_speech_batch` | Synthesize and play multiple texts with pipeline playback |
+| `speak` | Synthesize and play a single text |
+| `speak_a_lot` | Synthesize and play multiple texts with pipeline playback |
 | `sing` | Synthesize singing voice from a musical score |
 
 ## Troubleshooting
