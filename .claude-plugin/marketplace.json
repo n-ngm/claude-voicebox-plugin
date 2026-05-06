@@ -1,0 +1,11 @@
+{
+  "name": "claude-voicebox-plugin",
+  "owner": { "name": "n-ngm" },
+  "plugins": [
+    {
+      "name": "voicebox",
+      "source": ".",
+      "description": "VOICEVOX voice notification and character speech for Claude Code"
+    }
+  ]
+}
