@@ -17,10 +17,10 @@ function readJson(path) {
 
 function resolveCurrentSpeaker(cwd) {
   const paths = [];
-  if (cwd) paths.push(join(cwd, ".claude", "settings.voicebox.json"));
-  paths.push(join(homedir(), ".claude", "settings.voicebox.json"));
+  if (cwd) paths.push(join(cwd, ".claude", "settings.voicevox.json"));
+  paths.push(join(homedir(), ".claude", "settings.voicevox.json"));
   for (const p of paths) {
-    const speaker = readJson(p)?.voicebox?.current_speaker;
+    const speaker = readJson(p)?.voicevox?.current_speaker;
     if (speaker) return speaker;
   }
   return "zundamon";
@@ -185,7 +185,7 @@ process.stdin.on("end", async () => {
   let input = {};
   try { input = JSON.parse(data); } catch {}
 
-  try { appendFileSync("/tmp/voicebox-debug.log", JSON.stringify(input) + "\n"); } catch {}
+  try { appendFileSync("/tmp/voicevox-debug.log", JSON.stringify(input) + "\n"); } catch {}
 
   const { hook_event_name: hookEvent = "", message, last_assistant_message: lastAssistantMessage, transcript_path: transcriptPath, cwd } = input;
 

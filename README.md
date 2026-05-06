@@ -1,4 +1,4 @@
-# claude-voicebox-plugin
+# claude-voicevox-plugin
 
 Claude Code plugin for VOICEVOX voice notifications with character personalities.
 
@@ -13,24 +13,17 @@ Enables desktop notifications and voice synthesis via a local [VOICEVOX](https:/
 
 ## Installation
 
-### 1. Add the plugin
+### 1. Add the marketplace and install the plugin
 
 ```bash
-claude plugin add /path/to/claude-voicebox-plugin
+claude plugin marketplace add n-ngm/claude-voicevox-plugin
+claude plugin install voicevox@claude-voicevox-plugin
 ```
 
-Or install directly from GitHub (once supported):
-
-```bash
-claude plugin add github:n-ngm/claude-voicebox-plugin
-```
-
-### 2. Run the install command
-
-In a Claude Code session:
+### 2. Restart Claude Code, then run setup
 
 ```
-/voicebox:install
+/voicevox:setup
 ```
 
 This will:
@@ -38,20 +31,30 @@ This will:
 1. Check prerequisites
 2. Run `npm install` in the plugin directory
 3. Start VOICEVOX Engine via Docker
-4. Let you pick a default character
-5. Configure permissions and CLAUDE.md import
+4. Create a stable symlink for version-independent CLAUDE.md import
+5. Let you pick a default character
+6. Configure permissions and CLAUDE.md import
 
 ### 3. Restart Claude Code
 
 Restart Claude Code to apply all changes.
 
+## Updating
+
+```bash
+claude plugin marketplace update claude-voicevox-plugin
+claude plugin update voicevox@claude-voicevox-plugin
+```
+
+Then restart Claude Code and run `/voicevox:setup` again to refresh the symlink.
+
 ## Character Configuration
 
-Set `voicebox.current_speaker` in `settings.voicebox.json`:
+Set `voicevox.current_speaker` in `settings.voicevox.json`:
 
 ```json
 {
-  "voicebox": {
+  "voicevox": {
     "current_speaker": "zundamon"
   }
 }
@@ -59,8 +62,8 @@ Set `voicebox.current_speaker` in `settings.voicebox.json`:
 
 **Resolution priority:**
 
-1. `{project-directory}/.claude/settings.voicebox.json`
-2. `~/.claude/settings.voicebox.json`
+1. `{project-directory}/.claude/settings.voicevox.json`
+2. `~/.claude/settings.voicevox.json`
 3. Default: `zundamon`
 
 ## Available Characters
@@ -101,7 +104,7 @@ docker compose -f /path/to/plugin/docker-compose.yml restart
 **MCP server not responding / multiple processes**
 
 ```bash
-pkill -f voicebox
+pkill -f mcp_server
 ```
 
 Restart Claude Code to relaunch the MCP server.

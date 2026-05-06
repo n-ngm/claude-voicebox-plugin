@@ -1,5 +1,5 @@
 {
-  "description": "Voicebox plugin notification hooks",
+  "description": "VOICEVOX plugin notification hooks",
   "hooks": {
     "Notification": [
       {

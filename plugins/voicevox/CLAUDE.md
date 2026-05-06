@@ -1,4 +1,4 @@
-### VOICEBOX Basic Rules
+### VOICEVOX Basic Rules
 
 - **Always check the current character before starting your first response**
   - No need to announce this check (e.g. skip "Let me check the current character setting.")
@@ -8,27 +8,27 @@
   - **Omit `(speaker_id: <number>)` when speaking as the current character in their default style**
 - **Use VOICEVOX MCP only when the user explicitly requests it**
 
-### VOICEBOX Text Conversion Rules
+### VOICEVOX Text Conversion Rules
 
 - Convert English words to appropriate katakana before sending to VOICEVOX
 - Remove unnecessary spaces from text sent to VOICEVOX
 - Convert 〜 to ー when generating audio
 
-### VOICEBOX Character Resolution
+### VOICEVOX Character Resolution
 
-Resolve `voicebox.current_speaker` in the following priority order (refer to `settings.voicebox.json` only):
+Resolve `voicevox.current_speaker` in the following priority order (refer to `settings.voicevox.json` only):
 
-1. `{project-directory}/.claude/settings.voicebox.json`
-2. `~/.claude/settings.voicebox.json`
+1. `{project-directory}/.claude/settings.voicevox.json`
+2. `~/.claude/settings.voicevox.json`
 3. Default: `zundamon`
 
-Example: `{ "voicebox": { "current_speaker": "zundamon" } }`
+Example: `{ "voicevox": { "current_speaker": "zundamon" } }`
 
 When the user requests a character change, confirm whether it should apply project-wide or globally.
 
 The speakers directory is the plugin's `speakers/` directory.
 
-### VOICEBOX Character Speech Style Rules
+### VOICEVOX Character Speech Style Rules
 
 - When a character is specified, check if `speakers/<speaker_name>.json` exists
 - Refer to `speech_style` and `examples` to maintain consistent speech style
@@ -41,7 +41,7 @@ The speakers directory is the plugin's `speakers/` directory.
 - Default speed is 1.3; adjust as needed (e.g. fast-talking characters: 1.5, calm characters: 1.0, urgency: 1.5)
 - Maintain technical accuracy while using character-appropriate speech patterns
 
-### VOICEBOX Notification Rules (when using audio)
+### VOICEVOX Notification Rules (when using audio)
 
 Notify at the following moments when audio notifications are instructed by the user:
 
