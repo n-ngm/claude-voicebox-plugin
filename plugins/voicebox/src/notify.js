@@ -120,13 +120,13 @@ async function processHookMessage(hookEvent, message, lastAssistantMessage, tran
     if (message.startsWith("Claude wants to")) return notifications.permission_needed ?? "許可が必要";
     if (message.startsWith("Claude Code needs your attention")) {
       const [q] = extractLastAssistantMessage(transcriptPath);
-      return q || notifications.question ?? "質問がある";
+      return q || (notifications.question ?? "質問がある");
     }
     if (message.startsWith("Claude Code needs your approval")) return notifications.permission_needed ?? "許可が必要";
     return message;
   }
 
-  return message || notifications.default ?? "通知";
+  return message || (notifications.default ?? "通知");
 }
 
 async function synthesizeAndPlay(text, speakerId, speed) {

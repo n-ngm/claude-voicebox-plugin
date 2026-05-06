@@ -34,9 +34,11 @@ After starting, verify the engine responds with `curl -s http://localhost:50021/
 
 Set `voicebox.current_speaker` in `~/.claude/settings.voicebox.json`.
 
-Skip if already configured. Otherwise, read the `.json` files in the plugin's `speakers/` directory (excluding `call_names.json`). For each file, extract the `character.name` for display. Present 4 popular characters as choices via AskUserQuestion showing the display name, but record the filename stem (without `.json`) as the value. Include "Other" as an option so the user can type any filename stem directly.
+Skip if already configured. Otherwise, read the `.json` files in the plugin's `speakers/` directory (excluding `call_names.json`). For each file, extract the `character.name` for display. Present 4 popular characters as choices via AskUserQuestion showing the display name, but record the filename stem (without `.json`) as the value. Include "Other" as an option with a note that all available characters can be typed by filename stem.
 
 For example, `zundamon.json` → display "ずんだもん", value `zundamon`.
+
+Available filename stems: `zundamon`, `shikoku_metan`, `kasukabe_tsumugi`, `tohoku_zunko`, `tohoku_kiritan`, `tohoku_itako`, `shirakami_kotarou`, `kurono_takehiro`, `chibishikijii`, `ankomon`.
 
 Write the **filename stem** (not the display name) to `~/.claude/settings.voicebox.json`:
 
